@@ -1,6 +1,4 @@
 
-import React from 'react';
-
 export enum CaseStatus {
   Active = 'Active',
   Pending = 'Pending',
@@ -113,6 +111,8 @@ export interface AuditLog {
 
 // --- Case Types ---
 
+export type Priority = 'High' | 'Medium' | 'Low';
+
 export interface CaseFile {
   id: string;
   name: string;
@@ -148,6 +148,7 @@ export interface Case {
   title: string;
   clientName: string;
   status: CaseStatus;
+  priority: Priority;
   lastUpdated: string;
   description: string;
   files: CaseFile[];

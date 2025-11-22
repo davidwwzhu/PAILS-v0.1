@@ -1,5 +1,5 @@
 
-import { Case, CaseFile, AuditLog, UserProfile, SubscriptionTier, DocStatus, CaseStatus, UserRole } from '../types';
+import { Case, CaseFile, AuditLog, UserProfile, SubscriptionTier, DocStatus, CaseStatus, UserRole, Priority } from '../types';
 import { PrivacyProtector } from './privacyService';
 
 // Initial Data
@@ -30,6 +30,7 @@ class MockDatabase {
         title: 'TechCorp v. Innovate LLC',
         clientName: 'TechCorp Inc.',
         status: CaseStatus.Active,
+        priority: 'High',
         lastUpdated: '2024-11-14T10:30:00Z',
         description: 'Intellectual property dispute regarding patent infringement.',
         files: [],
@@ -64,13 +65,14 @@ class MockDatabase {
     return this.cases.find(c => c.id === caseId && c.userId === userId);
   }
 
-  createCase(userId: string, title: string): Case {
+  createCase(userId: string, title: string, priority: Priority = 'Medium'): Case {
     const newCase: Case = {
       id: `C-${Date.now()}`,
       userId,
       title,
       clientName: 'New Client',
       status: CaseStatus.Active,
+      priority,
       lastUpdated: new Date().toISOString(),
       description: '',
       files: [],

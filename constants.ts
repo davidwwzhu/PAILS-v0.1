@@ -1,3 +1,4 @@
+
 import { AgentType, Case, CaseStatus, Order, OrderStatus, Invoice, InvoiceStatus, SubscriptionTier } from './types';
 
 export const AGENT_DESCRIPTIONS: Record<AgentType, string> = {
@@ -49,6 +50,8 @@ export const PRICING_PLANS = [
   }
 ];
 
+// MOCK DATA - Note: Transactional data moved to mockDb.ts usually, keeping these here for static reference if needed by components
+// but mostly components fetch from mockDb.
 export const MOCK_ORDERS: Order[] = [
   {
     order_id: 'ORD20251114001',
@@ -85,6 +88,7 @@ export const MOCK_CASES: Case[] = [
     title: 'TechCorp v. Innovate LLC',
     clientName: 'TechCorp Inc.',
     status: CaseStatus.Active,
+    priority: 'High',
     lastUpdated: '2024-05-20T10:30:00Z',
     description: 'Intellectual property dispute regarding patent infringement in semiconductor design.',
     files: [],
@@ -96,6 +100,7 @@ export const MOCK_CASES: Case[] = [
     title: 'Estate of J. Smith',
     clientName: 'Sarah Smith',
     status: CaseStatus.Pending,
+    priority: 'Medium',
     lastUpdated: '2024-05-19T14:15:00Z',
     description: 'Probate matter involving contested will and asset distribution.',
     files: [],
@@ -107,6 +112,7 @@ export const MOCK_CASES: Case[] = [
     title: 'Global Trade v. Logistics Co',
     clientName: 'Global Trade Ltd.',
     status: CaseStatus.Active,
+    priority: 'Low',
     lastUpdated: '2024-05-18T09:00:00Z',
     description: 'Breach of contract regarding international shipping delays and damages.',
     files: [],
